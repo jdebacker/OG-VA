@@ -1,6 +1,6 @@
 """
 ------------------------------------------------------------------------
-Functions for generating demographic objects necessary for the OG-USA
+Functions for generating demographic objects necessary for the OG-VA
 model
 ------------------------------------------------------------------------
 """
@@ -372,7 +372,7 @@ def immsolve(imm_rates, *args):
 def get_pop_objs(E, S, T, min_yr, max_yr, curr_year, GraphDiag=False):
     """
     This function produces the demographics objects to be used in the
-    OG-USA model package.
+    OG-VA model package.
 
     Args:
         E (int): number of model periods in which agent is not

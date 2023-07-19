@@ -6,7 +6,7 @@ import pytest
 import numpy as np
 import os
 import ogcore
-from ogusa.calibrate import Calibration
+from ogva.calibrate import Calibration
 
 CUR_PATH = os.path.abspath(os.path.dirname(__file__))
 

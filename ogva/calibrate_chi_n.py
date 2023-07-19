@@ -17,7 +17,7 @@ chi_estimate() = returns chi_n, chi_b
 Last updated: 7/27/2016
 
 Uses a simulated method of moments to calibrate the chi_n adn chi_b
-parameters of OG-USA.
+parameters of OG-VA.
 
 This py-file calls the following other file(s):
     wealth.get_wealth_data()
@@ -37,8 +37,8 @@ try:
     import cPickle as pickle
 except ImportError:
     import pickle
-from ogusa import wealth
-from ogusa import labor
+from ogva import wealth
+from ogva import labor
 from ogcore import SS
 from ogcore import utils
 

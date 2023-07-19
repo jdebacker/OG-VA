@@ -1,6 +1,6 @@
 """
 This module uses data from FRED to find values for parameters for the
-OG-USA model that rely on macro data for calibration.
+OG-VA model that rely on macro data for calibration.
 """
 
 # imports

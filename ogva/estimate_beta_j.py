@@ -1,6 +1,6 @@
 """
 This script uses simulated method of moments estimator to estimate the
-beta_j parameters for OG-USA.
+beta_j parameters for OG-VA.
 """
 
 
@@ -8,7 +8,7 @@ import numpy as np
 import os
 import scipy.optimize as opt
 from ogcore.parameters import Specifications
-from ogusa import wealth
+from ogva import wealth
 from ogcore import SS
 from ogcore.utils import Inequality
 
@@ -43,7 +43,7 @@ def beta_estimate(
         "..",
         "..",
         "dynamic",
-        "ogusa",
+        "ogva",
         "data",
         "tax_functions",
         "TxFuncEst_baseline_PUF.pkl",
@@ -147,7 +147,7 @@ def calc_moments(ss_output, p):
 
     Args:
         ss_output = dictionary, variables from SS of model
-        p (OG-USA Specifications object): model parameters
+        p (OG-VA Specifications object): model parameters
 
     Returns:
         model_moments (array-like): Array of model moments
@@ -186,7 +186,7 @@ def compute_weighting_matrix(p, optimal_weight=False):
     Function to compute the weighting matrix for the GMM estimator.
 
     Args:
-        p (OG-USA Specifications object): model parameters
+        p (OG-VA Specifications object): model parameters
         optimal_weight (boolean): whether to use an optimal
             weighting matrix or not
 
@@ -252,7 +252,7 @@ def compute_se(beta_hat, W, K, p, h=0.01, client=None):
         beta_hat (array-like): estimates of beta parameters
         W (Numpy array): weighting matrix
         K (int): number of moments
-        p (OG-USA Specifications object): model parameters
+        p (OG-VA Specifications object): model parameters
         h (scalar): percentage to move parameters for numerical derivatives
         client (Dask Client object): Dask client
 

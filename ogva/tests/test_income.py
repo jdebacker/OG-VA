@@ -4,7 +4,7 @@ Tests of income.py module
 
 import pytest
 import numpy as np
-from ogusa import income
+from ogva import income
 
 
 def test_arctan_func():

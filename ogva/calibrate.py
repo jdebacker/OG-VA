@@ -1,6 +1,6 @@
-from ogusa import estimate_beta_j, bequest_transmission, demographics
-from ogusa import macro_params, transfer_distribution, income
-from ogusa import get_micro_data, psid_data_setup
+from ogva import estimate_beta_j, bequest_transmission, demographics
+from ogva import macro_params, transfer_distribution, income
+from ogva import get_micro_data, psid_data_setup
 import os
 import numpy as np
 from ogcore import txfunc

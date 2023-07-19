@@ -4,13 +4,13 @@ import pytest
 from pandas.testing import assert_frame_equal
 import numpy as np
 import os
-from ogusa.constants import CPS_START_YEAR, PUF_START_YEAR, TC_LAST_YEAR
-from ogusa import get_micro_data
+from ogva.constants import CPS_START_YEAR, PUF_START_YEAR, TC_LAST_YEAR
+from ogva import get_micro_data
 from ogcore import utils
 from taxcalc import GrowFactors
 
 NUM_WORKERS = min(multiprocessing.cpu_count(), 7)
-# get path to puf if puf.csv in ogusa/ directory
+# get path to puf if puf.csv in ogva/ directory
 CUR_PATH = os.path.abspath(os.path.dirname(__file__))
 PUF_PATH = os.path.join(CUR_PATH, "..", "puf.csv")
 
@@ -78,7 +78,7 @@ def test_puf_path():
     start_year = 2016
     reform = {"II_em": {2017: 10000}}
 
-    # puf.csv in ogusa/
+    # puf.csv in ogva/
     if os.path.exists(PUF_PATH):
         calc = get_micro_data.get_calculator(
             baseline, start_year, reform=reform, data=PUF_PATH

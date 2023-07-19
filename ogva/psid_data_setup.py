@@ -7,7 +7,7 @@ import datetime
 from linearmodels import PanelOLS
 from rpy2.robjects import r
 from rpy2.robjects import pandas2ri
-from ogusa.constants import PSID_NOMINAL_VARS, PSID_CONSTANT_VARS
+from ogva.constants import PSID_NOMINAL_VARS, PSID_CONSTANT_VARS
 
 pandas2ri.activate()
 pd.options.mode.chained_assignment = "raise"
