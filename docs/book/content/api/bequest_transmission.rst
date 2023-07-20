@@ -5,8 +5,8 @@ Bequest Transmission Process Estimation Functions
 
 **bequest_transmission.py modules**
 
-ogusa.bequest_transmission
+ogva.bequest_transmission
 ------------------------------------------
 
-.. automodule:: ogusa.bequest_transmission
+.. automodule:: ogva.bequest_transmission
   :members: MVKDE, get_bequest_matrix

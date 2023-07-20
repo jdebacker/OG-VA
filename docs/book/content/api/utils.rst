@@ -5,10 +5,10 @@ Utilities Functions
 
 **utils.py classes, methods, and modules**
 
-ogusa.utils
+ogva.utils
 ------------------------------------------
 
-.. currentmodule:: ogusa.utils
+.. currentmodule:: ogva.utils
 
-.. automodule:: ogusa.utils
+.. automodule:: ogva.utils
   :members: read_cbo_forecast
