@@ -2,7 +2,7 @@ name: ogva-dev
 channels:
 - conda-forge
 dependencies:
-- python>=3.7.7, <3.11
+- python>=3.7.7, <3.10
 - numpy
 - psutil
 - scipy>=1.5.0
@@ -34,3 +34,4 @@ dependencies:
   - cs2tc
   - pandas-datareader
   - ogcore
+  - fiscalsim-us
