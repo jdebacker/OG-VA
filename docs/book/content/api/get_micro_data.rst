@@ -5,8 +5,8 @@ Functions to Get Micro-data
 
 **get_micro_data.py modules**
 
-ogusa.get_micro_data
+ogva.get_micro_data
 ------------------------------------------
 
-.. automodule:: ogusa.get_micro_data
-  :members: get_calculator, get_data, taxcalc_advance, cap_inc_mtr
+.. automodule:: ogva.get_micro_data
+  :members: get_household_mtrs, get_calculator_output, get_data
