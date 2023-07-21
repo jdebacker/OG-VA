@@ -40,7 +40,7 @@ def main():
         json.load(
             open(
                 os.path.join(
-                    CUR_DIR, "..", "ogusa", "ogva_default_parameters.json"
+                    CUR_DIR, "..", "ogva", "ogva_default_parameters.json"
                 )
             )
         )
