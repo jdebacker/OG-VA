@@ -13,7 +13,7 @@ from fiscalsim_us import Microsimulation
 import pandas as pd
 import warnings
 from fiscalsim_us import *
-from fiscalsim_us.data import CPS
+from policyengine_core.reforms import Reform
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -28,7 +28,6 @@ def get_household_mtrs(
     reform,
     variable: str,
     period: int = None,
-    baseline: Microsimulation = None,
     **kwargs: dict,
 ) -> pd.Series:
     """Calculates household MTRs with respect to a given variable.
@@ -42,7 +41,7 @@ def get_household_mtrs(
     Returns:
         pd.Series: The household MTRs.
     """
-    baseline = baseline or Microsimulation(reform=reform, **kwargs)
+    baseline = Microsimulation(reform=reform, **kwargs)
     baseline_var = baseline.calc(variable, period)
     bonus = baseline.calc("is_adult", period) * 1  # Increase only adult values
     reformed = Microsimulation(reform=reform, **kwargs)
@@ -78,10 +77,21 @@ def get_calculator_output(baseline, year, reform=None, data=None):
 
     """
     # create a simulation
-    sim_kwargs = dict(dataset=data, dataset_year=2023)
+    # sim_kwargs = dict(dataset=data, dataset_year=2023)
+    sim_kwargs = {}
+    # def modify_parameters_rfm(parameters):
+    #     """
+    #     Baseline reform is to not modify the parameters.
+    #     """
+    #     pass
+    #     return parameters
+
+    # class cls_reform(Reform):
+    #     def apply(self):
+    #         self.modify_parameters(modify_parameters_rfm)
+
     if reform is None:
         sim = Microsimulation(**sim_kwargs)
-        reform = ()
     else:
         sim = Microsimulation(reform=reform, **sim_kwargs)
     if baseline:
@@ -111,14 +121,14 @@ def get_calculator_output(baseline, year, reform=None, data=None):
             reform,
             "employment_income",
             period=year,
-            baseline=sim,
+            # baseline=sim,
             **sim_kwargs,
         ).values,
         "mtr_capinc": get_household_mtrs(
             reform,
-            "savings_interest_income",
+            "interest_income",
             period=year,
-            baseline=sim,
+            # baseline=sim,
             **sim_kwargs,
         ).values,
         "age": max_age_in_hh,
@@ -126,7 +136,7 @@ def get_calculator_output(baseline, year, reform=None, data=None):
             "employment_income", map_to="household", period=year
         ).values,
         "total_capinc": sim.calc(
-            "savings_interest_income", map_to="household", period=year
+            "interest_income", map_to="household", period=year
         ).values,
         "market_income": market_income,
         "total_tax_liab": sim.calc("household_tax", period=year).values,

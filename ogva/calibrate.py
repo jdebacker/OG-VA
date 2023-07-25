@@ -18,7 +18,7 @@ class Calibration:
         estimate_beta=False,
         estimate_chi_n=False,
         tax_func_path=None,
-        iit_reform={},
+        iit_reform=None,
         guid="",
         data="cps",
         client=None,
@@ -76,7 +76,7 @@ class Calibration:
     def get_tax_function_parameters(
         self,
         p,
-        iit_reform={},
+        iit_reform=None,
         guid="",
         data="",
         client=None,
