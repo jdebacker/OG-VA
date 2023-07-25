@@ -5,8 +5,8 @@ Deterministic Earnings Profiles Estimation Functions
 
 **deterministic_profiles.py modules**
 
-ogusa.deterministic_profiles
+ogva.deterministic_profiles
 ------------------------------------------
 
-.. automodule:: ogusa.deterministic_profiles
+.. automodule:: ogva.deterministic_profiles
   :members: estimate_profiles

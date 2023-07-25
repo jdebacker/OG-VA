@@ -9,7 +9,7 @@ import pkg_resources
 
 
 class Calibration:
-    """OG-USA calibration class"""
+    """OG-VA calibration class"""
 
     def __init__(
         self,
@@ -18,7 +18,7 @@ class Calibration:
         estimate_beta=False,
         estimate_chi_n=False,
         tax_func_path=None,
-        iit_reform={},
+        iit_reform=None,
         guid="",
         data="cps",
         client=None,
@@ -76,7 +76,7 @@ class Calibration:
     def get_tax_function_parameters(
         self,
         p,
-        iit_reform={},
+        iit_reform=None,
         guid="",
         data="",
         client=None,
@@ -119,9 +119,9 @@ class Calibration:
             dict_params, run_micro = self.read_tax_func_estimate(
                 p, tax_func_path
             )
-            taxcalc_version = "Cached tax parameters, no taxcalc version"
+            fiscalsim_version = "Cached tax parameters, no taxcalc version"
         if run_micro:
-            micro_data, taxcalc_version = get_micro_data.get_data(
+            micro_data, fiscalsim_version = get_micro_data.get_data(
                 baseline=p.baseline,
                 start_year=p.start_year,
                 reform=iit_reform,
@@ -227,7 +227,7 @@ class Calibration:
             "etr_params": etr_params,
             "mtrx_params": mtrx_params,
             "mtry_params": mtry_params,
-            "taxcalc_version": taxcalc_version,
+            "taxcalc_version": fiscalsim_version,
             "mean_income_data": mean_income_data,
             "frac_tax_payroll": frac_tax_payroll,
         }
